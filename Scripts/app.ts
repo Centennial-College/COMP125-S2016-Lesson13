@@ -37,12 +37,12 @@
         main();
     }
 
-    // function resize(): void {
-    //     let CANVAS_WIDTH: number = window.innerWidth;
-    //     let CANVAS_HEIGHT: number = window.innerHeight;
-    //     helloLabel.x = CANVAS_WIDTH * 0.5;
-    //     helloLabel.y = CANVAS_HEIGHT * 0.5;
-    // }
+    function resize(): void {
+        CANVAS_WIDTH = window.innerWidth;
+        CANVAS_HEIGHT = window.innerHeight;
+        helloLabel.x = CANVAS_WIDTH * 0.5;
+        helloLabel.y = CANVAS_HEIGHT * 0.5;
+    }
 
     function checkBounds(axis: number, boundary: number): number {
         if (axis >= boundary) {
@@ -87,5 +87,7 @@
 
     // call init functin when window finishes loading
     window.addEventListener("load", init);
+
+    window.addEventListener("resize", resize);
 
 })();

@@ -30,12 +30,12 @@
         createjs.Ticker.on("tick", gameLoop); // call gameLoop every frame 
         main();
     }
-    // function resize(): void {
-    //     let CANVAS_WIDTH: number = window.innerWidth;
-    //     let CANVAS_HEIGHT: number = window.innerHeight;
-    //     helloLabel.x = CANVAS_WIDTH * 0.5;
-    //     helloLabel.y = CANVAS_HEIGHT * 0.5;
-    // }
+    function resize() {
+        CANVAS_WIDTH = window.innerWidth;
+        CANVAS_HEIGHT = window.innerHeight;
+        helloLabel.x = CANVAS_WIDTH * 0.5;
+        helloLabel.y = CANVAS_HEIGHT * 0.5;
+    }
     function checkBounds(axis, boundary) {
         if (axis >= boundary) {
             axis = boundary;
@@ -69,5 +69,6 @@
     }
     // call init functin when window finishes loading
     window.addEventListener("load", init);
+    window.addEventListener("resize", resize);
 })();
 //# sourceMappingURL=app.js.map
