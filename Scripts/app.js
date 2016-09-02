@@ -20,12 +20,14 @@
     var xDirection = 1;
     var dy = 1;
     var dx = 1;
+    var clickMeButton;
     // app entry function
     function init() {
         canvas = document.getElementById('canvas');
         canvas.setAttribute("width", CANVAS_WIDTH.toString());
         canvas.setAttribute("height", CANVAS_HEIGHT.toString());
         stage = new createjs.Stage(canvas);
+        stage.enableMouseOver(20); // enable mouse over events  
         createjs.Ticker.framerate = 60; // 60 frames per second
         createjs.Ticker.on("tick", gameLoop); // call gameLoop every frame 
         main();
@@ -46,7 +48,7 @@
         return axis;
     }
     function gameLoop() {
-        helloLabel.rotation += 5;
+        // helloLabel.rotation += 5;
         // checkbounds for x and y
         helloLabel.x = checkBounds(helloLabel.x, CANVAS_WIDTH);
         helloLabel.y = checkBounds(helloLabel.y, CANVAS_HEIGHT);

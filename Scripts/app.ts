@@ -23,6 +23,7 @@
     let xDirection: number = 1;
     let dy: number = 1;
     let dx: number = 1;
+    let clickMeButton: createjs.Bitmap;
 
     // app entry function
     function init(): void {
@@ -32,6 +33,7 @@
         canvas.setAttribute("height", CANVAS_HEIGHT.toString());
 
         stage = new createjs.Stage(canvas);
+        stage.enableMouseOver(20); // enable mouse over events  
         createjs.Ticker.framerate = 60; // 60 frames per second
         createjs.Ticker.on("tick", gameLoop); // call gameLoop every frame 
         main();
@@ -57,7 +59,7 @@
     }
 
     function gameLoop(): void {
-        helloLabel.rotation += 5;
+        // helloLabel.rotation += 5;
 
         // checkbounds for x and y
         helloLabel.x = checkBounds(helloLabel.x, CANVAS_WIDTH);
@@ -83,6 +85,8 @@
     function main(): void {
         helloLabel = new objects.Label('Kevin Ma', '40px arial', '#000', CANVAS_WIDTH * 0.5, CANVAS_HEIGHT * 0.5, true);
         stage.addChild(helloLabel);
+
+      
     }
 
     // call init functin when window finishes loading
